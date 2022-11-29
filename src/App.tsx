@@ -19,8 +19,6 @@ function App() {
   }, [columns]);
 
   const onDragEnd = (result: DropResult) => {
-    console.log(result);
-
     if (!result.destination) return;
     const { source, destination } = result;
     const sourceColumn = columns[source.droppableId];
@@ -55,9 +53,10 @@ function App() {
 
   return (
     <dataContext.Provider value={{ columns, setColumns }}>
-      <div className="w-full px-14 pt-2 md:px-8 sm:px-2 sm:pt-0">
+      <div className=" px-14 pt-2 md:px-8 sm:px-2 sm:pt-0">
+        {/* w-full */}
         <Nav />
-        <div className=" grid grid-flow-col	gap-5  justify-center  md:grid-flow-row md:justify-start md:w-full ">
+        <div className="grid grid-flow-col gap-5 justify-center md:grid-flow-row md:justify-start ">
           <DragDropContext onDragEnd={onDragEnd}>
             {Object.entries(columns).map(([columnId, column], index) => (
               <Column column={column} columnId={columnId} index={index} key={columnId} />

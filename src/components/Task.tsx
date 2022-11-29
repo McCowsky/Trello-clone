@@ -38,7 +38,8 @@ const Task = (props: any) => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="mb-6  min-h-[50px] min-w-[150px] w-[88%]  aspect-[5/3] flex relative shadow-[0_10px_0px_0px_rgba(0,0,0,0.15)] text-black rounded-xl md:mr-3"
+          className="mb-6   min-w-[150px] w-[88%]  aspect-[5/3] flex relative shadow-[0_10px_0px_0px_rgba(0,0,0,0.15)] text-black rounded-xl md:mr-3"
+          //min-h-[50px]
           style={{
             background: snapshot.isDragging ? "gray" : "white",
             ...provided.draggableProps.style,
@@ -48,7 +49,7 @@ const Task = (props: any) => {
             placeholder="+ Add some text"
             onChange={changeTaskContent}
             value={props.item.content}
-            className="mx-5 mt-2 mb-8 md:my-8 md:mb-6 md:mt-2 md:mx-2 w-full resize-none	lg:text-xs lg:my"
+            className="mx-5 mt-2 mb-8 md:my-8 md:mb-6 md:mt-2 md:mx-2 w-full resize-none lg:text-xs "
             style={{ background: snapshot.isDragging ? "gray" : "white" }}
           ></textarea>
           <button
