@@ -32,7 +32,11 @@ const routes: Route[] = [
 
 const location = new ReactLocation();
 
-worker.start();
+worker.start({
+  serviceWorker: {
+    url: "/Trello-clone/mockServiceWorker.js",
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
