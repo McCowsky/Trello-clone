@@ -2,13 +2,15 @@ import { Draggable } from "@hello-pangea/dnd";
 import React, { useContext } from "react";
 import { dataContext } from "../context";
 import { FiTrash2 } from "react-icons/fi";
-import { ColumnType } from "../Types";
+import { ColumnElements, ColumnType, ItemProps } from "../Types";
+import { usePostColumnData } from "../features/queries";
 
-const Task = (props: any) => {
+const Task = (props: ItemProps) => {
   const { columns, setColumns } = useContext(dataContext);
+  const { mutate } = usePostColumnData();
 
-  const deleteTask = (id: string, columnId: string, index: number) => {
-    const currentColumn = columns[columnId];
+  const deleteTask = (id: string, columnId: string, index: number): void => {
+    const currentColumn: ColumnElements = columns[columnId];
     currentColumn.items.splice(index, 1);
 
     setColumns((prevColumns: ColumnType) => ({
@@ -18,10 +20,11 @@ const Task = (props: any) => {
         items: currentColumn.items,
       },
     }));
+    mutate(columns);
   };
 
-  const changeTaskContent = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const currentColumn = columns[props.columnId];
+  const changeTaskContent = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    const currentColumn: ColumnElements = columns[props.columnId];
     currentColumn.items[props.index].content = event.target.value;
     setColumns((prevColumns: ColumnType) => ({
       ...prevColumns,
@@ -30,6 +33,7 @@ const Task = (props: any) => {
         items: [...currentColumn.items],
       },
     }));
+    mutate(columns);
   };
   return (
     <Draggable key={props.item.id} draggableId={props.item.id} index={props.index}>
@@ -39,7 +43,6 @@ const Task = (props: any) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           className="mb-6   min-w-[150px] w-[88%]  aspect-[5/3] flex relative shadow-[0_10px_0px_0px_rgba(0,0,0,0.15)] text-black rounded-xl md:mr-3"
-          //min-h-[50px]
           style={{
             background: snapshot.isDragging ? "gray" : "white",
             ...provided.draggableProps.style,

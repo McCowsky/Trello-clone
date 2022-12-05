@@ -19,24 +19,23 @@ const Nav = () => {
     localStorage.setItem("desc", desc);
   }, [handleChange]);
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
     if (event.target.name === "title") setTitle(event.target.value);
     if (event.target.name === "desc") setDesc(event.target.value);
   }
 
-  const clearAll = () => {
+  const clearAll = (): void => {
     setColumns(dataset.columns);
     setTitle("title");
     setDesc("description");
   };
 
   return (
-    <nav className=" h-32 lg:h-24 flex justify-between items-center w-full mb-10 lg:mb-5">
+    <nav className=" h-32 lg:h-24 flex justify-between items-center max-w-[1460px] my-0 mx-auto mb-10 lg:mb-5">
       <div className="flex flex-col w-full">
         <input
           name="title"
           type="text"
-          //placeholder="Title"
           className="text-5xl focus:outline-none focus:shadow-none focus:border-transparent hover:bg-[lightgray] w-full lg:text-3xl"
           value={title}
           onChange={handleChange}
@@ -44,7 +43,6 @@ const Nav = () => {
         <input
           name="desc"
           type="text"
-          //placeholder="Description"
           className="text-3xl focus:outline-none focus:shadow-none focus:border-transparent hover:bg-[lightgray] w-full lg:text-xl"
           value={desc}
           onChange={handleChange}

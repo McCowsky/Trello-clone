@@ -1,5 +1,5 @@
 export interface ColumnType {
-  [x: string]: Column;
+  [x: string]: ColumnElements;
 }
 
 export interface ColumnContextType {
@@ -13,7 +13,20 @@ export interface ColumnProps {
   index: number;
 }
 
-export interface Column {
+export interface ColumnElements {
   name: string;
   items: { id: string; content: string }[];
+}
+
+export interface Item {
+  id: string;
+  content: string;
+}
+
+export interface ItemProps {
+  item: Item;
+  index: number;
+  key: string;
+  columnId: string;
+  directionHorizontal: boolean;
 }
