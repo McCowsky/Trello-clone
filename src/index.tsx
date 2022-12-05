@@ -17,7 +17,7 @@ const queryClient = new QueryClient({
 
 const routes: Route[] = [
   {
-    path: "/",
+    path: "/Trello-clone",
     element: <HomePage />,
   },
   {
@@ -42,7 +42,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Router routes={routes} location={location}>
       <div className="w-full flex h-16 items-center text-xl font-semibold gap-10 max-w-[1460px] my-0 mx-auto">
-        <Link to="/" className="h-full flex items-center hover:text-gray-400">
+        <Link to="/Trello-clone" className="h-full flex items-center hover:text-gray-400">
           Home
         </Link>
         <Link to="/app " className="h-full flex items-center hover:text-gray-400">
