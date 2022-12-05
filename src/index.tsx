@@ -32,11 +32,7 @@ const routes: Route[] = [
 
 const location = new ReactLocation();
 
-worker.start({
-  serviceWorker: {
-    url: "/login/mockServiceWorker.js",
-  },
-});
+worker.start();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
