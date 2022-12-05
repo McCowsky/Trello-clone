@@ -3,7 +3,7 @@ import axios from "axios";
 import { ColumnType } from "../Types";
 
 const getColumns = () => {
-  return axios.get("http://api.trello-clone.com/api/columns");
+  return axios.get("https://api.trello-clone.com/api/columns");
 };
 
 export const useGetColumnData = () => {
@@ -11,7 +11,7 @@ export const useGetColumnData = () => {
 };
 
 const postColumns = (column: ColumnType) => {
-  return axios.post("http://api.trello-clone.com/api/columns", column);
+  return axios.post("https://api.trello-clone.com/api/columns", column);
 };
 
 export const usePostColumnData = () => {

@@ -27,7 +27,7 @@ export const handlers = [
     );
   }),
 
-  rest.post("http://api.trello-clone.com/api/columns", (req: any, res: any, ctx: any) => {
+  rest.post("https://api.trello-clone.com/api/columns", (req: any, res: any, ctx: any) => {
     return res(
       ctx.status(200),
       ctx.json({
