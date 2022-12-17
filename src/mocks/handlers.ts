@@ -1,5 +1,4 @@
 import { rest } from "msw";
-import dataset from "../dataset";
 import * as uuid from "uuid";
 
 export const handlers = [

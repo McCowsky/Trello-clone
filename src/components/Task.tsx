@@ -5,7 +5,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { ColumnElements, ColumnType, ItemProps } from "../Types";
 import { usePostColumnData } from "../features/queries";
 
-const Task = (props: ItemProps) => {
+const Task: React.FC<ItemProps> = (props) => {
   const { columns, setColumns } = useContext(dataContext);
   const { mutate } = usePostColumnData();
 

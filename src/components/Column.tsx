@@ -6,7 +6,7 @@ import * as uuid from "uuid";
 import { ColumnProps, ColumnType, Item } from "../Types";
 import { usePostColumnData } from "../features/queries";
 
-const Column = (props: ColumnProps) => {
+const Column: React.FC<ColumnProps> = (props) => {
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const { columns, setColumns } = useContext(dataContext);
   const { mutate } = usePostColumnData();

@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { dataContext } from "../context";
 import dataset from "../dataset";
 
-const Nav = () => {
+const Nav: React.FC = () => {
   const { columns, setColumns } = useContext(dataContext);
 
   const [title, setTitle] = useState(() => {

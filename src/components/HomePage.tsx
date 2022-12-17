@@ -1,4 +1,4 @@
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <div className="max-w-[1460px] my-0 mx-auto h-[calc(100vh-64px)]  flex flex-col justify-center items-center">
       <h1 className="text-6xl font-semibold md:text-4xl sm:text-2xl relative">

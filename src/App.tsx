@@ -6,7 +6,7 @@ import { dataContext } from "./context";
 import { ColumnElements, ColumnType, Item } from "./Types";
 import { useGetColumnData, usePostColumnData } from "./features/queries";
 
-function App() {
+const App: React.FC = () => {
   const { data, error, status, isError } = useGetColumnData();
 
   if (isError) {
@@ -73,6 +73,6 @@ function App() {
   ) : (
     <h2 className="text-4xl text-center">Loading...</h2>
   );
-}
+};
 
 export default App;
